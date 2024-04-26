@@ -1,3 +1,6 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 
-access_new_post_user,delivery.delivery,model_new_post,base.group_user,1,1,1,1
+access_new_post_user,new_post,model_new_post,base.group_user,1,1,1,1
+access_update_new_post_user,update_new_post,model_update_new_post,base.group_user,1,1,1,1
+access_new_post_department_user,new_post_department,model_new_post_department,base.group_user,1,1,1,1
+access_new_post_cities_user,new_post_cities,model_new_post_cities,base.group_user,1,1,1,1
