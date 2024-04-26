@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+    <record id="delivery_view" model="ir.ui.view">
+        <field name="name">NewPost</field>
+        <field name="model">new.post</field>
+        <field name="arch" type="xml">
+            <form string="Delivery">
+                <field name="name_sender"/>
+                <field name="adress_sender"/>
+                <field name="name_recipient"/>
+                <field name="adress_recipient"/>
+                <field name="form_of_payment"/>
+                <field name="cost"/>
+            </form>
+        </field>
+    </record>
+    <record id="res_config_settings_new_post_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.dividends</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='send_default']" position="after">
+                <div class="col-xs-12 col-md-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <div>
+                                        Налаштування Нової Пошти
+                                    </div>
+                                    <div class="content-group">
+                                        <div class="row mt16 ml4">
+                                            <label for="key_API"/>
+                                            <field name="key_API"/>
+                                        </div>
+                                        <div class="row mt16 ml4">
+                                            <label for="adress_API"/>
+                                            <field name="adress_API"/>
+                                        </div>
+                                       </div>
+                                </div>
+                            </div>
+            </xpath>
+        </field>
+    </record>
+    <record id="view_new_post_department_form" model="ir.ui.view">
+            <field name="name">new.post.department.form</field>
+            <field name="model">new.post.department</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="site_key"/>
+                            <field name="description"/>
+                            <field name="type_of_warehouse"/>
+                            <field name="ref"/>
+                            <field name="city_ref"/>
+                            <field name="city_description"/>
+                            <field name="settlement_ref"/>
+                            <field name="settlement_description"/>
+                            <field name="longitude"/>
+                            <field name="latitude"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_new_post_cities_form" model="ir.ui.view">
+            <field name="name">new.post.cities.form</field>
+            <field name="model">new.post.cities</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="description"/>
+                            <field name="ref"/>
+                            <field name="area"/>
+                            <field name="settlement_type"/>
+                            <field name="city_id"/>
+                            <field name="settlement_type_description"/>
+                            <field name="area_description"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

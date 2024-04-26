@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding='UTF-8'?>
+<odoo>
+    <data noupdate="1">
+    <record model="ir.cron" id="newpost_cron">
+        <field name="name">update new post departments</field>
+        <field name="model_id" ref="model_update_new_post"/>
+        <field name="state">code</field>
+        <field name="code">model._update_departments()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="doall" eval="False"/>
+    </record>
+
+    </data>
+</odoo>
