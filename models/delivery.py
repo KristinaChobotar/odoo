@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from odoo import models, fields, requests
+from odoo import models, fields
+import requests
 
 class NewPost(models.Model):
     _name='new.post'
@@ -15,7 +16,7 @@ class NewPost(models.Model):
 class NewPostUpdate(models.Model):
     _name = 'update.new.post'
 
-    @api.model
+    
     def _update_departments(self):
         api_url = "https://api.novaposhta.ua/v2.0/json/"
         api_key = "74317ff685f9b1159e42fb8548074ebf"
