@@ -5,7 +5,7 @@
             <field name="name">Save City from Nova Poshta</field>
             <field name="model_id" ref="model_new_post_cities"/>
             <field name="state">code</field>
-            <field name="code">model.save_city_from_nova_poshta('e71fe717-4b33-11e4-ab6d-005056801329')</field>
+            <field name="code"><model class="save_city_from_nova_poshta"></model></field>
             <field name="interval_number">1</field>
             <field name="interval_type">days</field>
             <field name="numbercall">-1</field>
