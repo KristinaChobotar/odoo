@@ -75,9 +75,6 @@
             <field name="model">new.post.cities</field>
             <field name="arch" type="xml">
                 <form>
-                    <header>
-                        <button name="update_departments" string="Run Code" type="object" />
-                    </header>
 
                     <sheet>
                         <group>

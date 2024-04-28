@@ -12,7 +12,8 @@
 	'data': [
 		'security/ir.model.access.csv',
 		'views/delivery_view.xml',
-		'data/new_post_update.xml'
+		'data/new_post_update.xml',
+        'data/cron_data.xml'
 	],
 	'images': [],
 	'license': 'AGPL-3',

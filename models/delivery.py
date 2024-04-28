@@ -110,3 +110,26 @@ class NewPostCities(models.Model):
     city_id = fields.Integer(string='City ID')
     settlement_type_description = fields.Char(string='Settlement Type Description')
     area_description = fields.Char(string='Area Description')
+
+    def save_city_from_nova_poshta(self, nova_poshta_city_ref):
+        api_key = '74317ff685f9b1159e42fb8548074ebf'
+
+        api_url = f'https://api.novaposhta.ua/v2.0/json/Address/getCities/{nova_poshta_city_ref}'
+        headers = {'Content-Type': 'application/json'}
+
+        response = requests.get(api_url, headers=headers, json={'apiKey': api_key})
+
+        if response.status_code == 200:
+            city_data = response.json()['data'][0]
+            city_vals = {
+                'description': city_data['Description'],
+                'ref': city_data['Ref'],
+                'area': city_data['Area'],
+                'settlement_type': city_data['SettlementType'],
+                'city_id': city_data['CityID'],
+                'settlement_type_description': city_data['SettlementTypeDescription'],
+                'area_description': city_data['AreaDescription'],
+            }
+            return self.create(city_vals)
+        else:
+            raise Exception(f'Nova Poshta API Error: {response.status_code} - {response.text}')
