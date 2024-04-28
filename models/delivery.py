@@ -18,19 +18,20 @@ class NewPostUpdate(models.Model):
 
     
     def _update_departments(self):
-        api_url = "https://api.novaposhta.ua/v2.0/json/"
+        # api_url = "https://api.novaposhta.ua/v2.0/json/"
         api_key = "74317ff685f9b1159e42fb8548074ebf"
 
         cities_payload = {
-            "apiKey": api_key,
+            "apiKey": "74317ff685f9b1159e42fb8548074ebf",
             "modelName": "Address",
             "calledMethod": "getCities",
             "methodProperties": {}
         }
-        cities_response = requests.post(api_url, json=cities_payload)
+        cities_response = requests.post("https://api.novaposhta.ua/v2.0/json/", json=cities_payload, headers={'Connection':'close'})
 
         if cities_response.status_code == 200:
             cities_data = cities_response.json().get('data', [])
+            #TODO додати додавання міста в модель new.post.cities
 
             for city in cities_data:
                 departments_payload = {
@@ -41,7 +42,7 @@ class NewPostUpdate(models.Model):
                         "CityRef": city['Ref']
                     }
                 }
-                departments_response = requests.post(api_url, json=departments_payload)
+                departments_response = requests.post("https://api.novaposhta.ua/v2.0/json/", json=departments_payload, headers={'Connection':'close'})
 
                 if departments_response.status_code == 200:
                     departments_data = departments_response.json().get('data', [])
