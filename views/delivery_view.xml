@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="delivery_view" model="ir.ui.view">
-            <field name="name">NewPost</field>
-            <field name="model">new.post</field>
-            <field name="arch" type="xml">
-                <form string="Delivery">
-                    <sheet>
-                        <group>
-                            <field name="name_sender"/>
-                            <field name="adress_sender"/>
-                            <field name="name_recipient"/>
-                            <field name="adress_recipient"/>
-                            <field name="form_of_payment"/>
-                            <field name="cost"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
         <record id="res_config_settings_new_post_view_form" model="ir.ui.view">
             <field name="name">res.config.settings.view.form.inherit.new_post</field>
             <field name="model">res.config.settings</field>
@@ -47,6 +28,10 @@
                 </xpath>
             </field>
         </record>
+
+ 
+
+
 
         <record id="view_new_post_department_form" model="ir.ui.view">
             <field name="name">new.post.department.form</field>
@@ -91,6 +76,44 @@
             </field>
         </record>
 
+       <record id="delivery_view_form" model="ir.ui.view">
+            <field name="name">NewPost.form</field>
+            <field name="model">new.post</field>
+            <field name="arch" type="xml">
+                <form string="Delivery">
+                    <sheet>
+                        <group>
+                            <field name="name_sender"/>
+                            <field name="adress_sender"/>
+                            <field name="name_recipient"/>
+                            <field name="adress_recipient"/>
+                            <field name="form_of_payment"/>
+                            <field name="cost"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="delivery_view_tree" model="ir.ui.view">
+            <field name="name">NewPost.tree</field>
+            <field name="model">new.post</field>
+            <field name="arch" type="xml">
+                <form string="Delivery">
+                    <sheet>
+                        <group>
+                            <field name="name_sender"/>
+                            <field name="adress_sender"/>
+                            <field name="name_recipient"/>
+                            <field name="adress_recipient"/>
+                            <field name="form_of_payment"/>
+                            <field name="cost"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
         <record id="post_action" model="ir.actions.act_window">
             <field name="name">NewPost</field>
             <field name="res_model">new.post</field>
@@ -104,13 +127,11 @@
         </record>
 
         <menuitem id="delivery_menu"
-                  name="Delivery Module"
-                  sequence="10"/>
+                  name="Delivery Module"/>
 
-        <menuitem id="my_model_menu"
+        <menuitem id="my_menu"
                   name="Delivery"
                   parent="delivery_menu"
-                  action="post_action"
-                  sequence="10"/>
+                  action="post_action"/>
     </data>
 </odoo>
